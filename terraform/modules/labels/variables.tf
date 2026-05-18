@@ -1,7 +1,7 @@
 variable "project" {
   type        = string
   default     = ""
-  description = "Project, which could be your organization name or abbreviation, e.g. 'cap' or 'cpb-cloud'"
+  description = "Project, which could be your organization name or abbreviation"
 }
 
 variable "stage" {
