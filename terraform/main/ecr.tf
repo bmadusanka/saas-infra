@@ -1,0 +1,18 @@
+resource "aws_ecr_repository" "consultation_app" {
+  name                 = "consultation-app"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "AES256"
+  }
+
+  tags = {
+    Name        = "consultation-app"
+    Environment = "prod"
+    ManagedBy   = "terraform"
+  }
+}
