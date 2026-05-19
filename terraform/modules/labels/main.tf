@@ -29,9 +29,6 @@ locals {
       TerraformWorkspace = terraform.workspace
       PlatformLayer      = var.layer
       Project            = var.project
-      ProjectID          = var.project_id
-      KST                = var.kst
-      WANumber           = var.wa_number
       Managed            = "Terraform"
       GitRepository      = var.git_repository
     },
