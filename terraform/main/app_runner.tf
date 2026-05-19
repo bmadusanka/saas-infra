@@ -1,5 +1,5 @@
 resource "aws_apprunner_service" "consultation_app" {
-  service_name      = "consultation-app-service"
+  service_name = "consultation-app-service"
 
   source_configuration {
     authentication_configuration {
@@ -25,8 +25,8 @@ resource "aws_apprunner_service" "consultation_app" {
   }
 
   instance_configuration {
-    cpu    = "0.25 vCPU"
-    memory = "0.5 GB"
+    cpu               = "0.25 vCPU"
+    memory            = "0.5 GB"
     instance_role_arn = aws_iam_role.apprunner_instance_role.arn
   }
 
