@@ -13,7 +13,7 @@ resource "aws_apprunner_service" "consultation_app" {
       image_configuration {
         port = "8000"
 
-        runtime_environment_variables = {
+        runtime_environment_secrets = {
           CLERK_SECRET_KEY = aws_secretsmanager_secret.openai.arn
           CLERK_JWKS_URL   = aws_secretsmanager_secret.clerk_url.arn
           OPENAI_API_KEY   = aws_secretsmanager_secret.clerk_key.arn
