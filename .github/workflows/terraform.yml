@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
-          path: terraform/tfplan
+          path: terraform/main/tfplan
   
   apply:
     name: Apply (DEV)
@@ -69,7 +69,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
-          path: terraform
+          path: terraform/main/
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
