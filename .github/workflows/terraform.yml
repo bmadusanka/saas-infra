@@ -42,9 +42,9 @@ jobs:
 
       - name: Terraform Plan
         env:
-          TF_VAR_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          TF_VAR_clerk_jwks_url: ${{ secrets.CLERK_JWKS_URL }}
-          TF_VAR_clerk_secret_key: ${{ secrets.CLERK_SECRET_KEY }}
+          TF_VAR_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TF_VAR_CLERK_JWKS_URL: ${{ secrets.CLERK_JWKS_URL }}
+          TF_VAR_CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
         run: terraform plan -out=tfplan
 
       - name: Upload plan
@@ -89,9 +89,9 @@ jobs:
 
       - name: Terraform Apply
         env:
-          TF_VAR_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          TF_VAR_clerk_jwks_url: ${{ secrets.CLERK_JWKS_URL }}
-          TF_VAR_clerk_secret_key: ${{ secrets.CLERK_SECRET_KEY }}
+          TF_VAR_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TF_VAR_CLERK_JWKS_URL: ${{ secrets.CLERK_JWKS_URL }}
+          TF_VAR_CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
         run: terraform apply tfplan
 
   destroy:
@@ -124,7 +124,7 @@ jobs:
 
       - name: Terraform Destroy
         env:
-          TF_VAR_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          TF_VAR_clerk_jwks_url: ${{ secrets.CLERK_JWKS_URL }}
-          TF_VAR_clerk_secret_key: ${{ secrets.CLERK_SECRET_KEY }}
+          TF_VAR_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TF_VAR_CLERK_JWKS_URL: ${{ secrets.CLERK_JWKS_URL }}
+          TF_VAR_CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
         run: terraform destroy -auto-approve
