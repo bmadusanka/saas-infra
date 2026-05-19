@@ -10,9 +10,7 @@ resource "aws_ecr_repository" "consultation_app" {
     encryption_type = "AES256"
   }
 
-  tags = {
-    Name        = "consultation-app"
-    Environment = "prod"
-    ManagedBy   = "terraform"
-  }
+  tags = merge(
+    module.labels.resource["consultation-app"]["tags"]
+  )
 }
