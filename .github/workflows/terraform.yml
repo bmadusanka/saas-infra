@@ -49,11 +49,11 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: dev   # 👈 THIS triggers approval gate
+      name: dev
 
     defaults:
       run:
-        working-directory: terraform
+        working-directory: terraform/main/
 
     steps:
       - name: Checkout
@@ -80,11 +80,11 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: dev-destroy   # 👈 separate approval gate
+      name: dev
 
     defaults:
       run:
-        working-directory: terraform
+        working-directory: terraform/main/
 
     steps:
       - name: Checkout
