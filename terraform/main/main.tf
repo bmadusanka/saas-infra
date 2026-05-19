@@ -7,6 +7,7 @@ module "labels" {
   stage          = var.stage
   layer          = var.stage
   resources = [
-    "consultation-app"
+    "consultation-app",
+    "apprunner-ecr-access-role"
   ]
 }
