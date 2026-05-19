@@ -6,7 +6,7 @@ resource "aws_iam_role" "apprunner_service_role" {
     Statement = [{
       Effect = "Allow"
       Principal = {
-        Service = "tasks.apprunner.amazonaws.com"
+        Service = "build.apprunner.amazonaws.com"
       }
       Action = "sts:AssumeRole"
     }]
