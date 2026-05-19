@@ -21,18 +21,3 @@ variable "project" {
   default     = "medica-ai"
   type        = string
 }
-
-variable "CLERK_SECRET_KEY" {
-  description = "Specify clerk secret key to use"
-  type        = string
-}
-
-variable "CLERK_JWKS_URL" {
-  description = "Specify clerk JWKS Url to use"
-  type        = string
-}
-
-variable "OPENAI_API_KEY" {
-  description = "Specify Open API key to use"
-  type        = string
-}
