@@ -1,6 +1,5 @@
 resource "aws_apprunner_service" "consultation_app" {
   service_name      = "consultation-app-service"
-  instance_role_arn = aws_iam_role.apprunner_instance_role.arn
 
   source_configuration {
     authentication_configuration {
@@ -15,9 +14,9 @@ resource "aws_apprunner_service" "consultation_app" {
         port = "8000"
 
         runtime_environment_secrets = {
-          CLERK_SECRET_KEY = aws_secretsmanager_secret.openai.arn
+          CLERK_SECRET_KEY = aws_secretsmanager_secret.clerk_key.arn
           CLERK_JWKS_URL   = aws_secretsmanager_secret.clerk_url.arn
-          OPENAI_API_KEY   = aws_secretsmanager_secret.clerk_key.arn
+          OPENAI_API_KEY   = aws_secretsmanager_secret.openai.arn
         }
       }
     }
@@ -28,6 +27,7 @@ resource "aws_apprunner_service" "consultation_app" {
   instance_configuration {
     cpu    = "0.25 vCPU"
     memory = "0.5 GB"
+    instance_role_arn = aws_iam_role.apprunner_instance_role.arn
   }
 
   health_check_configuration {
