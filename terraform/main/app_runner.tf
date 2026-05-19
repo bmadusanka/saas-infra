@@ -1,5 +1,6 @@
 resource "aws_apprunner_service" "consultation_app" {
-  service_name = "consultation-app-service"
+  service_name      = "consultation-app-service"
+  instance_role_arn = aws_iam_role.apprunner_instance_role.arn
 
   source_configuration {
     authentication_configuration {

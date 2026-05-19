@@ -24,7 +24,7 @@ resource "aws_iam_role_policy_attachment" "ecr" {
 
 resource "aws_iam_role_policy" "secrets" {
   name = "apprunner-secrets"
-  role = aws_iam_role.apprunner_service_role.id
+  role = aws_iam_role.apprunner_instance_role.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -34,6 +34,21 @@ resource "aws_iam_role_policy" "secrets" {
         "secretsmanager:GetSecretValue"
       ]
       Resource = "*"
+    }]
+  })
+}
+
+resource "aws_iam_role" "apprunner_instance_role" {
+  name = "apprunner-instance-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect = "Allow"
+      Principal = {
+        Service = "tasks.apprunner.amazonaws.com"
+      }
+      Action = "sts:AssumeRole"
     }]
   })
 }
