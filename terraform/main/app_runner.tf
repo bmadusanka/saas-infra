@@ -43,3 +43,10 @@ resource "aws_apprunner_service" "consultation_app" {
     module.labels.resource["consultation-app"]["tags"]
   )
 }
+
+resource "aws_apprunner_auto_scaling_configuration_version" "consultation" {
+  auto_scaling_configuration_name = "consultation-app-scaling"
+
+  min_size = 1
+  max_size = 1
+}
